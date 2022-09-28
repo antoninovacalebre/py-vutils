@@ -1,13 +1,40 @@
-## Utilizzo
-Nella cartella `site-packages` di Python aggiungi un file con estensione `.pth` contenente la cartella con i moduli
-	- Per anaconda la cartella è in `C:\Users\<NOME UTENTE>\anaconda3\envs\<NOME ENV>\Lib\site-packages`
+## Installare un pacchetto
 
-File `my_modules.pth` di esempio:
+1. Spostarsi nella cartella root del pacchetto (quella contenente `setup.py`)
+2. Aprire da terminale l'environment Python su cui si vuole installare
+3. Dare il comando `pip install .`
+
+## Creare un pacchetto
+
+Struttura la cartella in modo che si abbia
+
 ```
-C:\Users\Antonino\Python-Modules
+root/
+	setup.py
+	package_name/
+		__init__.py
+		module1.py
+		module2.py
+```
+
+Dove `__init__.py` è un file vuoto, mentre `setup.py` contiene codice del tipo
+
+``` python
+import setuptools
+
+setuptools.setup(name='vutils',
+                 version='1.0',
+                 description='Useful stuff',
+                 url='#',
+                 author='av',
+                 install_requires=[],
+                 author_email='',
+                 packages=setuptools.find_packages(),
+                 zip_safe=False)
 ```
 
 ## Note
+
 Quando fai un modulo aggiungi in fondo ai file
 ```python
 if __name__ == "__main__":
