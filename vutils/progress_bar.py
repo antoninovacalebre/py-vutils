@@ -30,7 +30,7 @@ def pb_init(text:str) -> int:
     print(text, end='')
     return 0
 
-def pb_update(iter:int, old_nbars:int, total:int, length:int = 80) -> int:
+def pb_update(iter:int, total:int, old_nbars:int, length:int = 40) -> int:
     nbars = int(length * iter // total)
     ten = length // 10
     
