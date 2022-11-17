@@ -33,3 +33,6 @@ def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10) -> tu
             time.sleep(dt)
 
     return peak_mem, peak_cpu
+
+if __name__ == "__main__":
+    pass

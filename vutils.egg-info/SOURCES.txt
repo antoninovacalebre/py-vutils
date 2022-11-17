@@ -4,6 +4,7 @@ vutils/SI.py
 vutils/__init__.py
 vutils/fjson.py
 vutils/matutils.py
+vutils/nptricks.py
 vutils/procutils.py
 vutils/progress_bar.py
 vutils.egg-info/PKG-INFO
