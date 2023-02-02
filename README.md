@@ -1,12 +1,12 @@
-## Installare un pacchetto
+## How to Install
 
 ```bash
 pip install git+https://github.com/antoninovacalebre/py-vutils.git
 ```
 
-## Creare un pacchetto
+## Make a package
 
-Struttura la cartella in modo che si abbia
+Create the following folder structure:
 
 ```
 root/
@@ -17,7 +17,7 @@ root/
 		module2.py
 ```
 
-Dove `__init__.py` è un file vuoto, mentre `setup.py` contiene codice del tipo
+Where `__init__.py` is an empty file, while `setup.py` contains info about the package itself:
 
 ``` python
 import setuptools
@@ -33,9 +33,10 @@ setuptools.setup(name='vutils',
                  zip_safe=False)
 ```
 
-## Note
+## Notes
 
-Quando fai un modulo aggiungi in fondo ai file
+In each module source code remember to add this.
+
 ```python
 if __name__ == "__main__":
     pass
