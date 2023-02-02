@@ -5,6 +5,14 @@ import time
 def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10) -> tuple[float, float]:
     '''
     Executes command and monitors its Peak Memory Usage (in bytes) and Peak CPU Usage (%)
+
+    Args:
+        cmd (list[str]): command to execute in the form of a list of strings
+        log_file (str, optional): file to log the output of the command. Defaults to 'log.txt'.
+        monitor_frequency (int, optional): frequency of monitoring in Hz. Defaults to 10.
+
+    Returns:
+        tuple[float, float]: Peak Memory Usage (in bytes) and Peak CPU Usage (%)
     '''
     dt = 1 / monitor_frequency
 

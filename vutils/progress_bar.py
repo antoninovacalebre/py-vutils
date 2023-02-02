@@ -1,3 +1,22 @@
+def pb_init(text:str) -> int:
+    print(text, end='')
+    return 0
+
+def pb_update(iter:int, total:int, old_nbars:int, length:int = 40) -> int:
+    nbars = int(length * iter // total)
+    ten = length // 10
+    
+    for i in range(old_nbars, nbars):
+        imod10 = i % ten
+        if (imod10 == 0 and i != 0):
+            print(i // ten * 10, end='')
+        print('-', end='')
+
+    if iter == total:
+        print(100)
+
+    return nbars
+    
 def print_progress_bar(iteration, total, prefix='', suffix='', usePercentage=False, decimals=1, length=80, fill='█', printEnd="\r"):
     """
     Call in a loop to create terminal progress bar
@@ -26,24 +45,6 @@ def print_progress_bar(iteration, total, prefix='', suffix='', usePercentage=Fal
     if iteration == total:
         print()
 
-def pb_init(text:str) -> int:
-    print(text, end='')
-    return 0
-
-def pb_update(iter:int, total:int, old_nbars:int, length:int = 40) -> int:
-    nbars = int(length * iter // total)
-    ten = length // 10
-    
-    for i in range(old_nbars, nbars):
-        imod10 = i % ten
-        if (imod10 == 0 and i != 0):
-            print(i // ten * 10, end='')
-        print('-', end='')
-
-    if iter == total:
-        print(100)
-
-    return nbars
 
 def print_progress(iteration, total, prefix='', suffix='', decimals=1, printEnd="\r"):
     """

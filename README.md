@@ -1,8 +1,8 @@
 ## Installare un pacchetto
 
-1. Spostarsi nella cartella root del pacchetto (quella contenente `setup.py`)
-2. Aprire da terminale l'environment Python su cui si vuole installare
-3. Dare il comando `pip install .`
+```bash
+pip install git+https://github.com/antoninovacalebre/py-vutils.git
+```
 
 ## Creare un pacchetto
 
