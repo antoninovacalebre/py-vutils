@@ -2,7 +2,7 @@ import psutil as ps
 import time
 
 
-def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10) -> tuple[float, float]:
+def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10, print_info=False) -> tuple[float, float]:
     '''
     Executes command and monitors its Peak Memory Usage (in bytes) and Peak CPU Usage (%)
 
@@ -16,7 +16,7 @@ def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10) -> tu
     '''
     dt = 1 / monitor_frequency
 
-    with open('log.txt', 'w') as f:
+    with open(log_file, 'w') as f:
         process = ps.Popen(cmd, stdin=None, stdout=f)
 
         peak_mem = 0
@@ -29,6 +29,9 @@ def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10) -> tu
                 cpu = process.cpu_percent()
             except:
                 break
+            
+            if print_info:
+                print(f"Memory: {mem/1024/1024} MB, CPU: {cpu}%")
 
             # track the peak utilization of the process
             if mem > peak_mem:
