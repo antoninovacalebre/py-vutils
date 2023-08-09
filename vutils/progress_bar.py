@@ -1,5 +1,5 @@
 def pb_init(text:str) -> int:
-    print(text, end='')
+    print(text, end='', flush=True)
     return 0
 
 def pb_update(iter:int, total:int, old_nbars:int, length:int = 40) -> int:
@@ -14,6 +14,8 @@ def pb_update(iter:int, total:int, old_nbars:int, length:int = 40) -> int:
 
     if iter == total:
         print(100)
+    
+    print("", end="", flush=True)
 
     return nbars
     
