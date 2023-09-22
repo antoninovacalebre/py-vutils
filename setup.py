@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(name='vutils',
-                 version='1.8',
+                 version='1.9',
                  description='Useful stuff',
                  url='#',
                  author='av',

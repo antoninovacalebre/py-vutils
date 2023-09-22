@@ -25,7 +25,10 @@ def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10, print
         while(process.is_running()):
             # capture the memory and cpu utilization at an instance
             try:
-                mem = process.memory_info().rss
+                mem = 0
+                mem += process.memory_info().rss
+                for child in process.children(recursive=True):
+                    mem += child.memory_info().rss
                 cpu = process.cpu_percent()
             except:
                 break
@@ -38,7 +41,7 @@ def exec_and_monitor(cmd, log_file: str = 'log.txt', monitor_frequency=10, print
                 peak_mem = mem
             if cpu > peak_cpu:
                 peak_cpu = cpu
-            if mem == 0.0:
+            if mem == 0:
                 break
 
             time.sleep(dt)
